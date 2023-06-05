@@ -1,4 +1,5 @@
 import config.BaseClass;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -26,6 +27,30 @@ public class TestHillel extends BaseClass {
         driver.findElement(tgButton).click();
         driver.findElement(tgField).sendKeys("https://t.me/Andrii_Sy");
         Thread.sleep(1000); // додав паузу тому що після натисканання на телеграм батон форма зміює розмір
+
+        driver.findElement(selectCourseBt).click();
+        List<WebElement> list = driver.findElements(allCourses);
+        for (WebElement e : list) {
+            if (e.getText().trim().equals("QA Automation — Java")){
+                e.click();
+                break;
+            }
+        }
+        driver.findElement(marketingCheckbox).click();
+        Thread.sleep(5000);
+        driver.quit();
+    }
+
+    @Test
+    public void testHillel() throws InterruptedException {
+        driver.get(mainUrl);
+        driver.findElement(consultButon).click();
+        driver.findElement(nameField).sendKeys("Andrii Sydorenko");
+        driver.findElement(emailFiield).sendKeys("a.sydorenko9595@gmail.com");
+        driver.findElement(phoneNubler).sendKeys("936255436");
+        driver.findElement(tgButton).click();
+        driver.findElement(tgField).sendKeys("https://t.me/Andrii_Sy");
+//        Thread.sleep(1000); // додав паузу тому що після натисканання на телеграм батон форма зміює розмір
 
         driver.findElement(selectCourseBt).click();
         List<WebElement> list = driver.findElements(allCourses);
