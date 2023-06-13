@@ -40,12 +40,12 @@ public class FrontEndPF {
 
         Util.scrollToElementVisibilityOf(driver, By.id("coachesShowAllButton"));
         driver.findElement(By.id("coachesShowAllButton")).click();
-        Util.scrollToElementVisibilityOf(driver, By.id("input-email-mailing"));
         List<WebElement> l = driver.findElements(By.xpath("//ul[@class=\"coach-list coaches_list\"]//li//p[@class=\"coach-card_name\"]"));
         List<String> teachersList = new ArrayList<>();
-        for (int i = 0; i < l.size(); i++) {
-            teachersList.add(l.get(i).getText());
+        for (WebElement element : l) {
+            teachersList.add(element.getText());
         }
         return teachersList;
     }
+
 }
